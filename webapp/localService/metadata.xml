@@ -1,0 +1,17 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZSAP_BOOKSHOP_CDS_SRV_02" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="Books" sap:label="Books" sap:content-version="1">
+				<Key><PropertyRef Name="BookId"/></Key><Property Name="BookId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Book ID" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Book Title"/><Property Name="Author" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Book's author"/><Property Name="PublisherId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Publisher's ID"/><Property Name="CukyField" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency key"
+					sap:semantics="currency-code"/><Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:unit="CukyField"
+					sap:label="Amount" sap:filterable="false"/><Property Name="UnitField" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:sortable="false"
+					sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="Stock" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="UnitField"
+					sap:label="Quantity" sap:sortable="false" sap:filterable="false"/><Property Name="Createdat" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time Stamp"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Createdby" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="72" sap:unicode="false" sap:label="Long text - line width 72"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityContainer Name="ZSAP_BOOKSHOP_CDS_SRV_02_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="BooksSet" EntityType="ZSAP_BOOKSHOP_CDS_SRV_02.Books" sap:searchable="true" sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self" href="./sap/ZSAP_BOOKSHOP_CDS_SRV_02/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="./sap/ZSAP_BOOKSHOP_CDS_SRV_02/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

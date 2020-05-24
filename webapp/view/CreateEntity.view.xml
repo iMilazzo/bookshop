@@ -1,0 +1,56 @@
+<mvc:View controllerName="bookshop.bookshop.controller.CreateEntity" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{= ${viewModel>/mode} === 'edit'? 'Edit ZSAP_BOOKSHOP_CDS_SRV_02.Books': 'New ZSAP_BOOKSHOP_CDS_SRV_02.Books'}">
+				<f:content>
+					<Label text="Book ID" required="true"/>
+					<Input name="BookId" id="BookId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'BookId', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					<Label text="Book Title" required="true"/>
+					<Input name="Title" id="Title_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Title', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:80, nullable:false } }"/>
+					<Label text="Book&#x27;s author" required="true"/>
+					<Input name="Author" id="Author_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Author', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:80, nullable:false } }"/>
+					<Label text="Publisher&#x27;s ID" required="true"/>
+					<Input name="PublisherId" id="PublisherId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'PublisherId', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					<Label text="Currency key" required="true"/>
+					<Input name="CukyField" id="CukyField_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'CukyField', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }"/>
+					<Label text="Amount" required="true"/>
+					<Input name="Price" id="Price_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Price', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:16, scale:3, nullable:false } }"/>
+					<Label text="Unit" required="true"/>
+					<Input name="UnitField" id="UnitField_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'UnitField', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:3, nullable:false } }"/>
+					<Label text="Quantity" required="true"/>
+					<Input name="Stock" id="Stock_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Stock', type: 'sap.ui.model.odata.type.Decimal' , constraints:{ precision:13, scale:3, nullable:false } }"/>
+					<Label text="Time Stamp" required="true"/>
+					<DatePicker name="Createdat" value="{ path: 'Createdat', type: 'sap.ui.model.type.DateTime'}" id="Createdat_id" type="DateTime"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"/>
+					<Label text="User Name" required="true"/>
+					<Input name="Createdby" id="Createdby_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Createdby', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:12, nullable:false } }"/>
+					<Label text="Long text - line width 72" required="true"/>
+					<Input name="Name" id="Name_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'Name', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:72, nullable:false } }"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled="{viewModel>/enableCreate}" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>
